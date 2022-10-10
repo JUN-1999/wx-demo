@@ -15,6 +15,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name: 'JUN-1999', //用户信息
+    message: '发送内容', //发送内容
     color: '#008000',
     lineWidth: 5,
     ctxLineWidth: 0,
@@ -167,21 +169,28 @@ Page({
 
     socket.on('opend', (data) => {
       console.log('opend:', data);
+      // 链接成功之后进入房间
+      socket.emit('room', {
+        nickname: this.data.name,
+      });
     });
     socket.on('connect', (data) => {
       console.log('connection created.', data)
     });
-    socket.on('joined', (data) => {
-      console.log('joined:', data);
+    socket.on('room', (data) => {
+      console.log('room', data);
+    })
+
+  },
+
+  // 进入房间
+
+  // 发送需求
+  setmessage() {
+    socket.emit('message', {
+      nickname: this.data.name,
+      messsage: this.data.message
     });
-
-    socket.on('getMessage', (data) => {
-      console.log('getMessage:', data);
-
-    });
-    socket.emit('setMessage', 'Jack');
-
-
   },
   /**
    * 生命周期函数--监听页面加载
