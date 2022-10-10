@@ -1,0 +1,26 @@
+<!--pages/draw/draw.wxml-->
+<canvas type="2d" id="myCanvas" class="myCanvas" bindtouchstart="bindtouchstart" bindtouchmove="bindtouchmove" bindtouchend="bindtouchend"></canvas>
+
+<view class="input-box">
+  <block wx:if="{{userID==nowUserID}}">
+    <!-- 当前是绘画回合 -->
+    <view class="tools">
+      <view class="tool" bindtap="clearRect">清空</view>
+      <view class="tool {{toolType==2?'tool-active':''}}" bindtap="showChangeColor" style="background-color: {{color}};">颜色</view>
+      <view class="tool {{toolType==3?'tool-active':''}}" bindtap="eraser">橡皮檫</view>
+    </view>
+    <view class="color-list" wx:if="{{showColor}}">
+      <view class="color-item" wx:for="{{colorList}}" wx:key="{{item}}" style="background-color: {{item}};" data-color="{{item}}" bindtap="chengColor"></view>
+    </view>
+  </block>
+  <block wx:else>
+    <!-- 当前不是绘画回合 -->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </block>
+
+</view>
+<!-- <canvas type="2d" id="myCanvas2" class="myCanvas"></canvas> -->
+
+<view style="position: fixed;bottom: 0;">
+  线条宽度：{{ctxLineWidth}}
+</view>

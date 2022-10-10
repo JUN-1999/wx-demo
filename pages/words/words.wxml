@@ -1,0 +1,23 @@
+<!--pages/words/words.wxml-->
+
+<!-- <view class="flex-box">
+  输入内容
+  <input class="input" type="text" value="{{inputValue}}" bindinput="inputChange" />
+</view>
+
+<button class="btn" bindtap="sound">发声</button>
+
+<view class="flex-box">
+  <button bind:tap="play">播放</button>
+  <button bind:tap="pause">暂停</button>
+  <button bind:tap="stop">停止</button>
+</view> -->
+
+<view class="flex-box">
+  <view class="img-box">
+    <image class="img" src="{{showIMG}}" alt="" />
+  </view>
+  <view class="word">{{showWord}}</view>
+</view>
+<button bind:tap="play">播放</button>
+<button bind:tap="nextBtn" class="nextBtn">下一个</button>

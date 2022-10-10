@@ -1,0 +1,48 @@
+/* pages/draw/draw.wxss */
+.myCanvas {
+  width: 100vw;
+  height: 60vh;
+}
+
+.input-box {
+  width: 100vw;
+  height: 40vh;
+  background-color: pink;
+  box-sizing: border-box;
+}
+
+.tools {
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tool {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgba(242, 242, 242, .8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+  font-weight: 800;
+  box-shadow: 0rpx 0rpx 10rpx 1rpx rgb(129, 129, 129);
+}
+
+.tool-active {
+  border: 2px rgb(255, 123, 0) solid;
+}
+
+.color-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.color-item {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}

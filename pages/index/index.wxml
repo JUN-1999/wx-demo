@@ -1,0 +1,5 @@
+<!--index.wxml-->
+
+
+<button class="btn" bindtap="words">前往词塘</button>
+<button class="btn" bindtap="draw">你画我猜</button>
