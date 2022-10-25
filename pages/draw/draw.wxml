@@ -15,7 +15,13 @@
   </block>
   <block wx:else>
     <!-- 当前不是绘画回合 -->
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <view class="input-value-box">
+      <textarea value="{{textareaVale}}" name="" id="" cols="30" rows="10" disabled></textarea>
+      <view class="input-footer-box">
+        <input placeholder="发送文字" type="text" value="{{inputValue}}" bindinput="input" />
+        <button type="primary" bindtap="setmessage">发送</button>
+      </view>
+    </view>
   </block>
 
 </view>

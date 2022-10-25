@@ -1,6 +1,6 @@
 // pages/draw/draw.js
 const io = require('../../utils/weapp.socket.io');
-
+const util = require('../../utils/util');
 const W = wx.getSystemInfoSync().windowWidth;
 const H = wx.getSystemInfoSync().windowHeight;
 let canvas = null;
@@ -16,17 +16,24 @@ Page({
    */
   data: {
     name: 'JUN-1999', //用户信息
-    message: '发送内容', //发送内容
+
     color: '#008000',
     lineWidth: 5,
     ctxLineWidth: 0,
     toolType: 2, // 2 画笔 3 橡皮檫
     userID: 332526,
-    nowUserID: 332526,
+    nowUserID: 332527,
     colorList: ['red', 'green', 'yellow', 'blue', 'blac'],
-    showColor: false
+    showColor: false,
+    inputValue: '', //输入内容
+    textareaVale: '', //富文本呢框的内容
   },
-
+  // 输入内容
+  input(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
   // 画笔按下
   bindtouchstart(e) {
     console.log(ctx.lineWidth);
@@ -159,13 +166,14 @@ Page({
     // let url = 'wss://junstar.top:3291'; //线上
     // let url = 'https://junstar.top:3291'; //线上
     let url = 'http://127.0.0.1:3290' // 本地
-    let socket = io(url, {
+    socket = io(url, {
       transports: ['websocket'], // 此项必须设置
       reconnectionAttempts: 3, // 失败后重新连接次数，一直失败总共尝试四次
       reconnectionDelay: 2000, // 重新连接间隔时间毫秒
       forceNew: true,
     });
     console.log(socket);
+
 
     socket.on('opend', (data) => {
       console.log('opend:', data);
@@ -177,20 +185,41 @@ Page({
     socket.on('connect', (data) => {
       console.log('connection created.', data)
     });
+    // 进入房间
     socket.on('room', (data) => {
       console.log('room', data);
-    })
-
+    });
+    // 接受到消息
+    socket.on('message', (data) => {
+      console.log('message', data);
+      let nickname = data.nickname;
+      let message = data.message;
+      let date = util.timestampToTime(Date.now() / 1000, 'h:m:s');
+      this.data.textareaVale = this.data.textareaVale + nickname + '  ' + date + '\n' + message + '\n';
+      this.setData({
+        textareaVale: this.data.textareaVale
+      })
+    });
   },
 
-  // 进入房间
+
 
   // 发送需求
   setmessage() {
+    if (this.data.inputValue == '') {
+      wx.showToast({
+        title: '内容为空不能发送',
+        icon: 'none'
+      })
+      return false
+    }
     socket.emit('message', {
       nickname: this.data.name,
-      messsage: this.data.message
+      message: this.data.inputValue
     });
+    this.setData({
+      inputValue: ''
+    })
   },
   /**
    * 生命周期函数--监听页面加载

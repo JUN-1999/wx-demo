@@ -11,6 +11,44 @@
   box-sizing: border-box;
 }
 
+.input-value-box {
+  background-color: #fff;
+  height: 90%;
+  width: 95vw;
+  margin: 0 auto;
+  position: relative;
+}
+
+.input-footer-box {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.input-value-box textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.input-value-box input {
+  display: inline-block;
+  flex: 1;
+  height: 80rpx;
+  background-color: #f2f2f2;
+  padding: 0 20rpx;
+}
+
+.input-value-box button {
+  display: inline-flex;
+  width: 200rpx !important;
+  margin: 0 !important;
+  justify-content: center;
+  align-items: center;
+}
+
 .tools {
   padding: 20rpx 0;
   display: flex;
