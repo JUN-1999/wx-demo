@@ -21,12 +21,18 @@ Page({
     lineWidth: 5,
     ctxLineWidth: 0,
     toolType: 2, // 2 画笔 3 橡皮檫
-    userID: 332526,
+    userID: 332527,
     nowUserID: 332527,
-    colorList: ['red', 'green', 'yellow', 'blue', 'blac'],
+    colorList: ['red', 'green', 'yellow', 'blue', 'black'],
     showColor: false,
     inputValue: '', //输入内容
-    textareaVale: '', //富文本呢框的内容
+    textareaVale: [], //富文本呢框的内容
+    scrollLast: null, //滚动的id
+  },
+  getScollBottom() {
+    this.setData({
+      scrollLast: 'item' + (this.data.textareaVale.length - 1)
+    })
   },
   // 输入内容
   input(e) {
@@ -180,6 +186,7 @@ Page({
       // 链接成功之后进入房间
       socket.emit('room', {
         nickname: this.data.name,
+        room: 123
       });
     });
     socket.on('connect', (data) => {
@@ -195,10 +202,15 @@ Page({
       let nickname = data.nickname;
       let message = data.message;
       let date = util.timestampToTime(Date.now() / 1000, 'h:m:s');
-      this.data.textareaVale = this.data.textareaVale + nickname + '  ' + date + '\n' + message + '\n';
+      this.data.textareaVale.push({
+        nickname,
+        message,
+        date
+      })
       this.setData({
         textareaVale: this.data.textareaVale
       })
+      this.getScollBottom();
     });
   },
 
@@ -215,7 +227,8 @@ Page({
     }
     socket.emit('message', {
       nickname: this.data.name,
-      message: this.data.inputValue
+      message: this.data.inputValue,
+      room: 123
     });
     this.setData({
       inputValue: ''

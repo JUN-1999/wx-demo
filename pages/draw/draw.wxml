@@ -4,25 +4,34 @@
 <view class="input-box">
   <block wx:if="{{userID==nowUserID}}">
     <!-- 当前是绘画回合 -->
-    <view class="tools">
-      <view class="tool" bindtap="clearRect">清空</view>
-      <view class="tool {{toolType==2?'tool-active':''}}" bindtap="showChangeColor" style="background-color: {{color}};">颜色</view>
-      <view class="tool {{toolType==3?'tool-active':''}}" bindtap="eraser">橡皮檫</view>
-    </view>
-    <view class="color-list" wx:if="{{showColor}}">
-      <view class="color-item" wx:for="{{colorList}}" wx:key="{{item}}" style="background-color: {{item}};" data-color="{{item}}" bindtap="chengColor"></view>
-    </view>
-  </block>
-  <block wx:else>
-    <!-- 当前不是绘画回合 -->
-    <view class="input-value-box">
-      <textarea value="{{textareaVale}}" name="" id="" cols="30" rows="10" disabled></textarea>
-      <view class="input-footer-box">
-        <input placeholder="发送文字" type="text" value="{{inputValue}}" bindinput="input" />
-        <button type="primary" bindtap="setmessage">发送</button>
+    <view class="tools-box">
+      <view class="tools">
+        <view class="tool" bindtap="clearRect">清空</view>
+        <view class="tool {{toolType==2?'tool-active':''}}" bindtap="showChangeColor" style="background-color: {{color}};">颜色</view>
+        <view class="tool {{toolType==3?'tool-active':''}}" bindtap="eraser">橡皮檫</view>
+      </view>
+      <view class="color-list" wx:if="{{showColor}}">
+        <view class="color-item" wx:for="{{colorList}}" wx:key="{{item}}" style="background-color: {{item}};" data-color="{{item}}" bindtap="chengColor"></view>
       </view>
     </view>
   </block>
+
+  <!-- 当前不是绘画回合 -->
+  <view class="input-value-box">
+    <!-- 内容展示 -->
+    <scroll-view class="chat-message-box" scroll-y="{{true}}" scroll-into-view="{{scrollLast}}">
+      <view class="chat-message" wx:for="{{textareaVale}}" id="item{{index}}">
+        <view>{{item.nickname}} {{item.date}}</view>
+        <view>{{item.message}}</view>
+      </view>
+    </scroll-view>
+
+    <view class="input-footer-box">
+      <input placeholder="发送文字" type="text" value="{{inputValue}}" bindinput="input" />
+      <button type="primary" bindtap="setmessage">发送</button>
+    </view>
+  </view>
+
 
 </view>
 <!-- <canvas type="2d" id="myCanvas2" class="myCanvas"></canvas> -->
