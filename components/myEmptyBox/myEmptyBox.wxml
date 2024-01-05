@@ -1,0 +1,5 @@
+<!--components/myEmptyBox/myEmptyBox.wxml-->
+<view class="empty-box" style="height: {{height}};{{style}}" >
+  <view class="empty-img"></view>
+  <view class="empty-text">{{title}}</view>
+</view>

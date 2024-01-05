@@ -1,0 +1,62 @@
+<!--activityCube/pages/index/components/userAvatarAndName/userAvatarAndName.wxml-->
+<!-- 先顶部弹窗通知用户需要授权头像昵称 -->
+<!-- 用户点击确认之后，显示下拉框 -->
+<!-- 用户取消则关闭 -->
+<van-popup z-index="999" round show="{{show && inform_show}}">
+  <view class="inform">
+    <view class="inform-title">该程序获得以下授权</view>
+    <view class="content">获取你的公开信息（{{title}}）以便查看活动信息与参与活动</view>
+    <view class="inform-btns">
+      <view class="inform-btn inform-cancle-btn" bind:tap="onCancelClose">取消</view>
+      <view wx:if="{{userinfo.is_auth_userinfo==0}}" class="inform-btn inform-confirm-btn" bind:tap="informConfirm">确认</view>
+      <!-- 授权手机号 -->
+      <button wx:else class="inform-btn inform-confirm-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确认</button>
+    </view>
+  </view>
+</van-popup>
+
+<van-popup round z-index="999" show="{{ popup_show }}" position="bottom" bind:close="onCancelClose">
+  <view class="info-box">
+    <view class="company-info">
+      <image class="company_logo" src="{{company_logo}}" mode="" />
+      <view class="company_applet_name">{{company_applet_name}} 申请</view>
+    </view>
+    <view class="title">
+      获取你的昵称、头像
+    </view>
+    <view class="tip">建立个人账户</view>
+    <form bindsubmit="onSubmit">
+      <view class="avatar-box">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{avatar}}" mode="widthFix"></image>
+        </button>
+        <text>选择头像</text>
+      </view>
+      <view class="name-box">
+        <input name="nickname" bindnicknamereview="nicknamereview" bind:change="textChange" bind:input="inputChange" value="{{value}}" type="nickname" class="weui-input" placeholder="点击获取昵称" />
+      </view>
+      <!-- 手机号已经授权的情况 -->
+      <button class="btn" form-type="submit" type="primary">保存</button>
+      <view style="height: 50rpx;"></view>
+    </form>
+  </view>
+</van-popup>
+
+<van-popup round z-index="999" show="{{ phone_show }}" position="bottom" bind:close="onCancelClose">
+  <view class="info-box">
+    <view class="company-info">
+      <image class="company_logo" src="{{company_logo}}" mode="" />
+      <view class="company_applet_name">{{company_applet_name}} 申请</view>
+    </view>
+    <view class="title" style="font-weight: 800;font-size: 30rpx;">
+      手机号授权
+    </view>
+    <view class="tip">用于小程序内后续服务</view>
+
+    <form bindsubmit="onSubmit">
+      <!-- 手机号授权的 -->
+      <button class="btn" style="width: 80vw;margin: 0 auto; margin-top: 50rpx;margin-bottom: 50rpx;  margin-bottom: constant(safe-area-inset-bottom);  margin-bottom: env(safe-area-inset-bottom);" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+      <view style="height: 120rpx;"></view>
+    </form>
+  </view>
+</van-popup>

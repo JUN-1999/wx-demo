@@ -1,0 +1,10 @@
+<!--components/scrollList/scrollList.wxml-->
+<scroll-view lower-threshold="120" enable-passive class="cell" bindscrolltolower="scrolltolower" scroll-y="{{true}}" style="height:{{scrollHeight1}};height:{{scrollHeight2}};{{style}}">
+  <slot></slot>
+  <my-empty-box wx:if="{{listIsEmpty && (load === 0 || load === 2)}}" title="{{emptyTitle}}"></my-empty-box>
+
+  <view style="height: 120rpx;display: flex;justify-content: center;align-items: center;">
+    <van-loading wx:if="{{load==1}}" type="spinner" size="24px"></van-loading>
+    <view wx:if="{{load==2 && !listIsEmpty}}" style="font-size:30rpx; color: #999999;">没有更多内容</view>
+  </view>
+</scroll-view>

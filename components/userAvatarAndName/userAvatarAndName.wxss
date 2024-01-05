@@ -1,0 +1,143 @@
+/* activityCube/pages/index/components/userAvatarAndName/userAvatarAndName.wxss */
+.info-box {
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 40rpx 30rpx;
+  padding-bottom: constant(safe-area-inset-bottom);
+  /*兼容 IOS<11.2*/
+  padding-bottom: env(safe-area-inset-bottom);
+  /*兼容 IOS>11.2*/
+}
+
+.title {
+  font-size: 35rpx;
+  font-weight: 800;
+  margin-bottom: 20rpx;
+}
+
+.avatar-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-wrapper {
+  all: unset;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-align: center;
+  background-color: #f4f4f6;
+}
+
+.avatar-wrapper image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.weui-input {
+  margin-top: 50rpx;
+  width: 90vw;
+  background-color: #f6f6f6;
+  border-radius: 50rpx;
+  height: 90rpx;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+
+.btn {
+  all: unset;
+  box-sizing: border-box;
+  width: 90vw;
+  height: 90rpx;
+  border-radius: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #05c160;
+  color: #fff;
+}
+
+button::after {
+  all: unset
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.company_logo {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+.company_applet_name {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-left: 20rpx;
+
+}
+
+.tip {
+  font-size: 25rpx;
+  color: #858585;
+}
+
+.inform {
+  box-sizing: border-box;
+  width: 70vw;
+  padding: 30rpx 30rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff0d9, #fff);
+}
+
+.inform-title {
+  font-weight: bolder;
+  font-size: 30rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+}
+
+.content {
+  color: #97734e;
+  font-size: 28rpx;
+  margin: 30rpx 0;
+}
+
+.inform-btns {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inform-btn {
+  width: 180rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  background-color: skyblue;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inform-cancle-btn {
+  border: 2rpx solid #ff081a;
+  color: #ff081a;
+  background-color: #fff;
+}
+
+.inform-confirm-btn {
+  background-color: #ff081a;
+  color: #fff;
+}
+

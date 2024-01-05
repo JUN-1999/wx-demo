@@ -1,0 +1,32 @@
+<!--components/myTable/myTable.wxml-->
+<!-- 绘制表格 -->
+<view>
+  <view class="sticky-top" style="white-space:nowrap;width:{{sumWidth}}rpx;">
+    <view class="tableTou" style="overflow-x: hidden; width: {{item.width}}rpx; {{item.fixed?'position: sticky;left:0;z-index:10':''}}" wx:for="{{prop}}" wx:key="key">
+      {{item.label}}
+    </view>
+  </view>
+
+  <view wx:for="{{dateData}}" wx:key="index" data-index="{{index}}">
+    <view style="white-space:nowrap;width:{{sumWidth}}rpx;">
+      <view class="tableTR {{propItem.todetail?'toDetail':''}}" data-flag="{{propItem.todetail}}" bind:tap="toRecord" style="max-width:{{propItem.width}}rpx;width: {{propItem.width}}rpx; {{propItem.fixed?'position: sticky;left:0;':''}}" wx:for-item="propItem" wx:for-index="propIndex" wx:for="{{prop}}" wx:key="key">
+        {{ propItem.type=='index'?index+1:item[propItem.key]}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 合计行 -->
+  <view wx:if="{{showSummary}}" class="sticky-bottom" style="bottom:{{stickyBottomHeight}}; white-space:nowrap;width:{{sumWidth}}rpx;">
+    <view class="tableTou" style="width: {{item.width}}rpx;{{item.fixed?'position: sticky;left:0;z-index:10':''}}" wx:for="{{prop}}" wx:key="index">
+      <block wx:if="{{index==0}}">
+        总计
+      </block>
+      <block wx:elif="{{totalRow[item.key]}}">
+        {{totalRow[item.key]}}
+      </block>
+      <block wx:else>
+        <text>\n </text>
+      </block>
+    </view>
+  </view>
+</view>
