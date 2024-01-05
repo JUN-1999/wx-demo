@@ -1,0 +1,6 @@
+<!--components/myNavBar/myNavBar.wxml-->
+<van-nav-bar z-index="999" custom-style="{{barStyle}}" custom-class="my-nav-bar-class" placeholder fixed>
+  <view slot="title" class="title" style="color:{{color}}">{{title}}</view>
+  <!-- 返回组件 -->
+  <go-back type="{{type}}" wx:if="{{isBack}}" slot="left" color="{{color}}" other-color="{{otherColor}}"></go-back>
+</van-nav-bar>

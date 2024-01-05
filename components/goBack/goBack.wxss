@@ -1,0 +1,17 @@
+.main {
+  width: 174rpx;
+  height: 64rpx;
+  border-radius: 32rpx;
+  border: 1rpx solid rgba(151, 151, 151, 0.201);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 40rpx;
+  padding: 0 10rpx;
+}
+
+.line {
+  width: 1rpx;
+  height: 37rpx;
+  background: rgba(0, 0, 0, 0.2);
+}

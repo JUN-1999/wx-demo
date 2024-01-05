@@ -1,0 +1,7 @@
+/* components/myNavBar/myNavBar.wxss */
+.title {
+  font-size: 34rpx;
+  font-family: PingFang SC-Medium, PingFang SC;
+  
+  color: #000000;
+}

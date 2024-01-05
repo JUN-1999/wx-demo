@@ -1,0 +1,9 @@
+<view wx:if="{{type=='left'}}">
+  <van-icon size="40rpx" color="{{color}}" name="arrow-left" bindtap="back" />
+</view>
+
+<view wx:if="{{type=='leftAndHome'}}" class="main" style=" border: 2rpx solid {{otherColor}}">
+  <van-icon color="{{color}}" name="arrow-left" bindtap="back" />
+  <view style="background: {{otherColor}}" class="line"></view>
+  <van-icon color="{{color}}" name="wap-home" bindtap="home" />
+</view>
