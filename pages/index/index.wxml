@@ -1,8 +1,8 @@
 <!--index.wxml-->
 
+<van-button custom-class="btn" round block type="primary" class="btn" bindtap="words">前往词塘</van-button>
+<van-button custom-class="btn" round block type="primary" class="btn" bindtap="draw">你画我猜</van-button>
+<van-button custom-class="btn" round block type="primary" class="btn" bindtap="uploadFile">上传文件</van-button>
+<van-button custom-class="btn" round block type="primary" class="btn" bindtap="scanCode">开启扫一扫</van-button>
 
-<button class="btn" bindtap="words">前往词塘</button>
-<button class="btn" bindtap="draw">你画我猜</button>
 
-<button class="btn" bindtap="uploadFile">上传文件</button>
-<button class="btn" bindtap="scanCode">开启扫一扫</button>

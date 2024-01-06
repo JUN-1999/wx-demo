@@ -3,19 +3,8 @@
   "projectname": "wx-demo",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": true
   },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/draw/draw",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        }
-      ]
-    }
-  }
+  "condition": {},
+  "libVersion": "3.3.0"
 }

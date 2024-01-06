@@ -1,0 +1,24 @@
+{
+  "name": "wx-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "@vant/weapp": "^1.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JUN-1999/wx-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JUN-1999/wx-demo/issues"
+  },
+  "homepage": "https://github.com/JUN-1999/wx-demo#readme"
+}

@@ -19,5 +19,7 @@
 }
 
 .btn{
+  margin: 0 auto;
   margin-top: 20rpx;
+  width: 80vw;
 }

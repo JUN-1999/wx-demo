@@ -1,4 +1,12 @@
 /**app.wxss**/
+@import '/icon/iconfont.wxss';
+
+view,text{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -7,4 +15,4 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
