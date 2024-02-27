@@ -1,0 +1,7 @@
+/* components/myNumInput/myNumInput.wxss */
+
+.input{
+  /* display: inline-flex; */
+  /* align-items: center; */
+  /* box-sizing: border-box; */
+}

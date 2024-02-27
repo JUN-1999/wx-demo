@@ -1,0 +1,19 @@
+<!--components/myNumStep/myNumStep.wxml-->
+<van-stepper 
+  decimal-length="{{ decimalLength }}" 
+  min="{{min}}" 
+  step="{{step}}" 
+  input-width="{{inputWidth}}" 
+  button-size="{{buttonSize}}" 
+  plus-class="plus-class" 
+  minus-class="minus-class" 
+  input-class="input-class" 
+  model:value="{{ value }}"  
+  bind:plus="numChangePlus"
+  bind:minus="numChangeMinus" 
+  bind:blur="inputBlur" 
+/>
+<!--   
+  bind:plus="numChangePlus"
+  bind:minus="numChangeMinus" 
+-->

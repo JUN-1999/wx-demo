@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/words/words",
     "pages/draw/draw",
-    "pages/tree/tree"
+    "pages/tree/tree",
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,6 +13,13 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "my-nav-bar": "/components/myNavBar/myNavBar",
+    "my-scroll-list": "/components/myScrollList/myScrollList",
+    "my-empty-box": "/components/myEmptyBox/myEmptyBox",
+    "my-num-input": "/components/myNumInput/myNumInput",
+    "my-num-step": "/components/myNumStep/myNumStep"
+  },
   "plugins": {
     "WechatSI": {
       "version": "0.3.5",

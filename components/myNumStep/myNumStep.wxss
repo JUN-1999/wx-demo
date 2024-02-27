@@ -1,0 +1,21 @@
+/* components/myNumStep/myNumStep.wxss */
+.plus-class {
+  color: #25BE34 !important;
+  background-color: #fff !important;
+  border: 2rpx solid #eee !important;
+  margin: 0 !important;
+}
+
+.minus-class {
+  color: #25BE34 !important;
+  background-color: #fff !important;
+  border: 2rpx solid #eee !important;
+  margin: 0 !important;
+}
+
+.input-class {
+  background-color: #fff !important;
+  border-top: 2rpx solid #eee !important;
+  border-bottom: 2rpx solid #eee !important;
+  margin: 0 !important;
+}

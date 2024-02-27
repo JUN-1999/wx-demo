@@ -1,0 +1,8 @@
+<!--pages/list/list.wxml-->
+<my-nav-bar title="列表加载" other-color="rgba(0,0,0,0.1)"></my-nav-bar>
+
+<my-scroll-list loading="{{loading}}" list-is-empty="{{!list.length}}" bottombtn="{{true}}" bindscrolltolower="scrolltolower" scrollTopHeight="calc(0px)">
+  <view wx:for="{{list}}" wx:key="index" class="list-item">
+    {{item}}
+  </view>
+</my-scroll-list>

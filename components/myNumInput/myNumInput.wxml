@@ -1,0 +1,2 @@
+<!--components/myNumInput/myNumInput.wxml-->
+<input class="input" type="digit"  model:value="{{value}}" bind:blur="inputBlur" bind:input="input" />

@@ -1,0 +1,8 @@
+/* pages/list/list.wxss */
+.list-item {
+  height: 150rpx;
+  padding: 0 50rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+}

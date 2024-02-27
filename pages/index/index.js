@@ -5,7 +5,8 @@ Page({
       { title: '你画我猜', url: '/pages/draw/draw' },
       { title: '上传文件', foo: 'uploadFile' },
       { title: '开启扫一扫', foo: 'scanCode' },
-      { title: '树结构', url: '/pages/tree/tree' }
+      { title: '树结构', url: '/pages/tree/tree' },
+      { title: '列表', url: '/pages/list/list' }
     ]
   },
   foo(e) {
