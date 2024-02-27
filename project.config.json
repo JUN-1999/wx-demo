@@ -47,7 +47,7 @@
     "checkInvalidKey": true,
     "disableUseStrict": false,
     "useCompilerPlugins": false,
-    "condition": true
+    "condition": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.4",

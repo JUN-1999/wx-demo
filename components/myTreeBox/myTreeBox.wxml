@@ -1,0 +1,2 @@
+<!--components/myTreeBox/myTreeBox.wxml-->
+<my-tree bind:checkList="checkList" bind:disCheckList="disCheckList" data="{{powerList}}" alldata="{{powerList}}" default-checked-keys="{{defaultCheckedKeys}}"  node-key="{{nodeKey}}" node-p-key="{{nodePKey}}" node-value="{{nodeValue}}"></my-tree>

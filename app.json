@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/words/words",
-    "pages/draw/draw"
+    "pages/draw/draw",
+    "pages/tree/tree"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -10,7 +11,6 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-
   "sitemapLocation": "sitemap.json",
   "plugins": {
     "WechatSI": {

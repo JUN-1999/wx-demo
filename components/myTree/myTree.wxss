@@ -1,0 +1,8 @@
+/* components/myTree/myTree.wxss */
+.content-class-empty {
+  line-height: 0 !important;
+  padding: 0 !important;
+}
+.content-class-collapse-item {
+  padding: 0 !important;
+}
