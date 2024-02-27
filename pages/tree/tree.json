@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-tree-box": "/components/myTreeBox/myTreeBox"
+  }
 }

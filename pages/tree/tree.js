@@ -1,13 +1,19 @@
 // pages/tree/tree.js
+import list from './list';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    powerList: list,
+    power_ids: []
   },
-
+  treecheck(e) {
+    this.setData({
+      power_ids: e.detail
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

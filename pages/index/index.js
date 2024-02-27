@@ -1,27 +1,29 @@
-// index.js
-// 获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-
+    tabs: [
+      { title: '前往词塘', url: '/pages/words/words' },
+      { title: '你画我猜', url: '/pages/draw/draw' },
+      { title: '上传文件', foo: 'uploadFile' },
+      { title: '开启扫一扫', foo: 'scanCode' },
+      { title: '树结构', url: '/pages/tree/tree' }
+    ]
+  },
+  foo(e) {
+    const { item } = e.currentTarget.dataset;
+    // 跳转
+    if (item.url) {
+      wx.navigateTo({
+        url: item.url,
+      })
+    }
+    // 自定义事件
+    if (item.foo) {
+      this[item.foo]();
+    }
   },
 
   onLoad() {
 
-  },
-  words() {
-    wx.navigateTo({
-      url: '/pages/words/words',
-    })
-  },
-  draw() {
-    wx.navigateTo({
-      url: '/pages/draw/draw',
-    })
   },
 
   // 上传文件
@@ -41,7 +43,7 @@ Page({
   // 唤起扫一扫
   scanCode() {
     wx.scanCode({
-      success (res) {
+      success(res) {
         console.log(res)
       }
     })

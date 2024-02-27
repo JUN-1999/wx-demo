@@ -1,2 +1,2 @@
 <!--pages/tree/tree.wxml-->
-<text>pages/tree/tree.wxml</text>
+<my-tree-box bind:check="treecheck" data="{{powerList}}" alldata="{{powerList}}" default-checked-keys="{{power_ids}}" node-key="id" node-p-key="pid" node-value="title"></my-tree-box>

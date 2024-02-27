@@ -1,0 +1,142 @@
+var wjcDate = function (value, type = 0) {
+  var time = getDate(value * 1000);
+  var year = time.getFullYear();
+  var month = time.getMonth() + 1;
+  var date = time.getDate();
+  var hour = time.getHours();
+  var minute = time.getMinutes();
+  var second = time.getSeconds();
+  month = month < 10 ? "0" + month : month;
+  date = date < 10 ? "0" + date : date;
+  hour = hour < 10 ? "0" + hour : hour;
+  minute = minute < 10 ? "0" + minute : minute;
+  second = second < 10 ? "0" + second : second;
+  var arr = [
+    year + "-" + month + "-" + date,
+    year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second,
+    year + "年" + month + "月" + date,
+    year + "年" + month + "月" + date + " " + hour + ":" + minute + ":" + second,
+    hour + ":" + minute + ":" + second,
+    year + "-" + month + "-" + date + " " + hour + ":" + minute,
+  ]
+  return arr[type];
+}
+function padZero(n) {
+  return n < 10 ? '0' + n : '' + n;
+}
+function getWeekDay(date) {
+  var weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+  return weekdays[date.getDay()];
+}
+function zyDate(timestamp, format = 'Y-m-d H:i:s') {
+  if (timestamp === undefined) {
+    timestamp = 0;
+  }
+  var date = getDate(timestamp * 1000)
+  var formatChars = {
+    'Y': function () { return date.getFullYear(); },
+    'm': function () { return padZero(date.getMonth() + 1); },
+    'd': function () { return padZero(date.getDate()); },
+    'H': function () { return padZero(date.getHours()); },
+    'i': function () { return padZero(date.getMinutes()); },
+    's': function () { return padZero(date.getSeconds()); },
+    'w': function () { return padZero(date.getDay()); }, // 'w' 代表星期
+    'W': function () { return padZero(getWeekDay(date)); }// 大写W 代表汉字的星期
+  };
+
+  var formatted = '';
+  for (var i = 0; i < format.length; i++) {
+    var ch = format[i];
+    if (formatChars[ch]) {
+      formatted += formatChars[ch]();
+    } else {
+      formatted += ch;
+    }
+  }
+
+  return formatted;
+}
+var getAge = function (timestamp) {
+  var birthday = getDate(timestamp * 1000);
+  var now = getDate();
+  var age = now.getFullYear() - birthday.getFullYear();
+  var month = now.getMonth() - birthday.getMonth();
+
+  if (month < 0 || (month === 0 && now.getDate() < birthday.getDate())) {
+    age--;
+    month = (month + 12) % 12;
+  }
+
+  if (now.getDate() < birthday.getDate()) {
+    month--;
+  }
+
+  return age + "岁" + Math.abs(month) + "个月";
+}
+var jsonStringify = function (val) {
+  return JSON.stringify(val)
+}
+var findFromArrayObject = function (arr, key, value, findkey) {
+  var findValue = null;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i][key] == value) {
+      findValue = arr[i][findkey]
+      break;
+    }
+  }
+  return findValue
+}
+// 是否在数组中
+var inCludes = function (arr = [], value) {
+  var flag = false;
+  for (var i = 0; i < arr.length; i++) {
+    var item = arr[i];
+    if (item == value) {
+      flag = true;
+      break;
+    }
+  }
+  return flag;
+}
+// 根据小数点分
+var numberToArr = function (num) {
+  if (!num) num = '';
+  num = num + '';
+  var arr = num.split('.');
+  return arr
+}
+
+// 权限数组长度判断
+var contrastArrayLength = function (childrenAllArr, checkArr) {
+
+  if (!childrenAllArr || childrenAllArr.length == 0) {
+    return true
+  }
+
+  var arr = [];
+  var childrenArrIds = [];//子数组id
+  for (var i = 0; i < childrenAllArr.length; i++) {
+    var childrenItem = childrenAllArr[i];
+    childrenArrIds.push(childrenItem.id)
+  }
+  for (var j = 0; j < childrenArrIds.length; j++) {
+    var childrenArrId = childrenArrIds[j];
+    if (inCludes(checkArr, childrenArrId)) {
+      arr.push(childrenArrId)
+    }
+  }
+
+  return arr.length == childrenAllArr.length;
+}
+
+module.exports = {
+  wjcDate: wjcDate,
+  getAge: getAge,
+  zyDate: zyDate,
+  getWeekDay: getWeekDay,
+  jsonStringify: jsonStringify,
+  findFromArrayObject: findFromArrayObject,
+  inCludes: inCludes,
+  numberToArr: numberToArr,
+  contrastArrayLength: contrastArrayLength
+};
